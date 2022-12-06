@@ -520,6 +520,65 @@
                                                     
                                                     </div>
 												</div>
+
+
+
+												<!--Membership Header Image -->
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-8">
+															<label>Membership Header Image</label>
+															<div class="custom-file @if($errors->has('membership_header')) is-invalid @endif">
+																<input type="file" class="custom-file-input @if($errors->has('membership_header')) is-invalid @endif"  id="membership_header" name="membership_header">
+																<label class="custom-file-label" for="membership_header">Membership Header Image</label>
+															</div>
+															@if($errors->has('membership_header'))
+																<div class="invalid-feedback">{{ $errors->first('membership_header') }}</div>
+															@endif
+														</div>
+														<div class="col-md-4">
+															<img src="{{url('uploads/members.jpg?'.cache('uploadHeader'))}}" style="max-width: 100%;">
+														</div>
+													</div>
+												</div>
+
+												<!--News Header Image -->
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-8">
+															<label>News Header Image</label>
+															<div class="custom-file @if($errors->has('news_header')) is-invalid @endif">
+																<input type="file" class="custom-file-input @if($errors->has('news_header')) is-invalid @endif"  id="news_header" name="news_header">
+																<label class="custom-file-label" for="news_header">News Header Image</label>
+															</div>
+															@if($errors->has('news_header'))
+																<div class="invalid-feedback">{{ $errors->first('news_header') }}</div>
+															@endif
+														</div>
+														<div class="col-md-4">
+															<img src="{{url('uploads/news.jpg?'.cache('uploadHeader'))}}" style="max-width: 100%;">
+														</div>
+													</div>
+												</div>
+
+												<!--Careers Header Image -->
+												<div class="form-group">
+													<div class="row">
+														<div class="col-md-8">
+															<label>Careers Header Image</label>
+															<div class="custom-file @if($errors->has('careers_header')) is-invalid @endif">
+																<input type="file" class="custom-file-input @if($errors->has('news_header')) is-invalid @endif"  id="careers_header" name="careers_header">
+																<label class="custom-file-label" for="careers_header">Careers Header Image</label>
+															</div>
+															@if($errors->has('careers_header'))
+																<div class="invalid-feedback">{{ $errors->first('careers_header') }}</div>
+															@endif
+														</div>
+														<div class="col-md-4">
+															<img src="{{url('uploads/careers.jpg?'.cache('uploadHeader'))}}" style="max-width: 100%;">
+														</div>
+													</div>
+												</div>
                                                 
                                                 
                                             </div>

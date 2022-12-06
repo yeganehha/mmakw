@@ -70,7 +70,22 @@ class AdminSettingsController extends Controller
 			'fax' => 'max:100|string',
             'loginurl' => 'nullable|max:100|string',
         ]);
-		
+
+
+
+        if($request->hasfile('membership_header')){
+            $request->membership_header->move( public_path('uploads') , 'members.jpg');
+            cache()->rememberForever('uploadHeader' , fn() => time() );
+        }
+        if($request->hasfile('news_header')){
+            $request->news_header->move( public_path('uploads') , 'news.jpg');
+            cache()->rememberForever('uploadHeader' , fn() => time() );
+        }
+        if($request->hasfile('careers_header')){
+            $request->careers_header->move( public_path('uploads') , 'careers.jpg');
+            cache()->rememberForever('uploadHeader' , fn() => time() );
+        }
+
 		 //check if water status is on , image required
 		 $is_watermark = !empty($request->input('is_watermark'))?$request->input('is_watermark'):'0';
 		 if($request->hasfile('watermark_img') && $is_watermark==0){

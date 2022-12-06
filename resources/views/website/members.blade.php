@@ -4,7 +4,7 @@
 
 @section('content')
             <!-- subheader -->
-            <section id="subheader" style="background:url({{url('uploads/members.jpg')}}) no-repeat;" data-speed="8" data-type="background">
+            <section id="subheader" style="background:url({{url('uploads/members.jpg?'.cache('uploadHeader'))}}) no-repeat;" data-speed="8" data-type="background">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
