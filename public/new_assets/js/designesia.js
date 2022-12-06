@@ -827,6 +827,26 @@ jQuery(document).ready(function () {
         }
     });
 
+    jQuery("#box-carousel").owlCarousel({
+        items: 4,
+        loop:true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplaySpeed: 1000,
+        responsive:{
+            1000:{
+                items:4
+            },
+            600:{
+                items:2
+            },
+            0:{
+                items:1
+            }
+        }
+    });
+
     jQuery("#contact-carousel").owlCarousel({
         items: 1,
         singleItem: true,
