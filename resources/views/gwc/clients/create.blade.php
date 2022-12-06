@@ -228,15 +228,17 @@
                                                 <div class="col-lg-4">
                                                 <label>{{__('adminMessage.username')}}</label>
                                                 <input type="text" class="form-control @if($errors->has('username')) is-invalid @endif" name="username"
-                                                               value="{{old('username')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_username')}}*" />
-                                                               @if($errors->has('username'))
-                                                               <div class="invalid-feedback">{{ $errors->first('username') }}</div>
-                                                               @endif
-                                                </div>
-                                                <div class="col-lg-4">
-                                                <label>{{__('adminMessage.password')}}</label>
-                                                <input type="password" class="form-control @if($errors->has('password')) is-invalid @endif" name="password"
-                                                               value="{{old('password')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_password')}}*" />
+                                                               value="{{old('username')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_username')}}" />
+													<small> If you leave it blank, the email will be inserted automatically.</small>
+													@if($errors->has('username'))
+														<div class="invalid-feedback">{{ $errors->first('username') }}</div>
+													@endif
+												</div>
+											  <div class="col-lg-4">
+												  <label>{{__('adminMessage.password')}}</label>
+												  <input type="password" class="form-control @if($errors->has('password')) is-invalid @endif" name="password"
+														 value="{{old('password')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_password')}}" />
+												  <small> If you leave it blank, the Mobile-1 will be inserted automatically.</small>
                                                                @if($errors->has('password'))
                                                                <div class="invalid-feedback">{{ $errors->first('password') }}</div>
                                                                @endif

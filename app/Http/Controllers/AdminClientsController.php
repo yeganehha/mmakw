@@ -128,8 +128,8 @@ class AdminClientsController extends Controller
 			'client_type'  => 'required|max:15|string',
             'email'        => 'required|email|min:3|max:150|string|unique:gwc_clients,email',
 			'mobile1'      => 'required|min:3|max:20',
-			'username'     => 'required|min:3|max:20|string|unique:gwc_clients,username',
-			'password'     => 'required|min:3|max:150|string',
+			'username'     => 'nullable|min:3|max:20|string|unique:gwc_clients,username',
+			'password'     => 'nullable|min:3|max:150|string',
 			'image'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 		
@@ -165,8 +165,8 @@ class AdminClientsController extends Controller
 		$clients->mobile1=$request->input('mobile1');
 		$clients->mobile2=$request->input('mobile2');
 		$clients->mobile3=$request->input('mobile3');
-		$clients->username=$request->input('username');
-		$clients->password=bcrypt($request->input('password'));
+		$clients->username=$request->input('username') ?? $request->input('email');
+		$clients->password=bcrypt($request->input('password') ?? $request->input('mobile1'));
 		$clients->is_active=!empty($request->input('is_active'))?$request->input('is_active'):'0';
 		$clients->image=$imageName;
 		$clients->save();
