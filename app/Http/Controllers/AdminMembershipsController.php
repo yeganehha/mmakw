@@ -75,6 +75,7 @@ class AdminMembershipsController extends Controller
 	    $this->validate($request, [
 		    'title_en'     => 'required|min:3|max:192|string|unique:gwc_memberships,title_en',
 			'title_ar'     => 'required|min:3|max:192|string|unique:gwc_memberships,title_ar',
+            'website'      => 'nullable|url|string',
 			'image'        => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 		
@@ -108,6 +109,7 @@ class AdminMembershipsController extends Controller
 		$memberships->title_ar=$request->input('title_ar');
 		$memberships->details_en=$request->input('details_en');
 		$memberships->details_ar=$request->input('details_ar');
+		$memberships->website=$request->input('website');
 		$memberships->display_order=!empty($request->input('display_order'))?$request->input('display_order'):'0';
 		$memberships->is_active=!empty($request->input('is_active'))?$request->input('is_active'):'0';
 		$memberships->image=$imageName;
@@ -182,6 +184,7 @@ class AdminMembershipsController extends Controller
 	    $this->validate($request, [
             'title_en'        => 'required|min:3|max:192|string|unique:gwc_memberships,title_en,'.$id,
 			'title_ar'        => 'required|min:3|max:192|string|unique:gwc_memberships,title_ar,'.$id,
+            'website'      => 'nullable|url|string',
 			'image'           => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 		
@@ -231,6 +234,7 @@ class AdminMembershipsController extends Controller
 	$memberships->title_ar=$request->input('title_ar');
 	$memberships->details_en=$request->input('details_en');
 	$memberships->details_ar=$request->input('details_ar');
+	$memberships->website=$request->input('website');
 	$memberships->display_order=!empty($request->input('display_order'))?$request->input('display_order'):'0';
 	$memberships->is_active=!empty($request->input('is_active'))?$request->input('is_active'):'0';
 	$memberships->image=$imageName;

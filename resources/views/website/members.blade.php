@@ -29,6 +29,10 @@
                             @foreach($memberslistsds as $memberslist)
                                 <img src="{{url('uploads/memberships/'.$memberslist->image)}}" alt="" class=" {{ app()->getLocale() == "en" ? 'pic_left' : 'pic_right' }} w-100" style="max-width: 290px;">
                                 {!! app()->getLocale()=="en" ? $memberslist->details_en : $memberslist->details_ar !!}
+                                @if($memberslist->website)
+                                    <br>
+                                    <a href="{{ $memberslist->website }}" target="_blank" rel="nofollow">{{ $memberslist->website }}</a>
+                                @endif
                                 <div class="clear30x"></div>
                             @endforeach
                         @endif

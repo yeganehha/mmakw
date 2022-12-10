@@ -180,6 +180,15 @@
                                             
                                           
                                          <div class="form-group row">
+
+											 <div class="col-lg-4">
+												 <label>Website</label>
+												 <input type="text" class="form-control @if($errors->has('website')) is-invalid @endif" name="website"
+														value="{{old('website')}}" autocomplete="off" placeholder="website" />
+												 @if($errors->has('website'))
+													 <div class="invalid-feedback">{{ $errors->first('website') }}</div>
+												 @endif
+											 </div>
                                                 <div class="col-lg-4">
                                                 <label>{{__('adminMessage.image')}}</label>
                                                         <div class="custom-file @if($errors->has('image')) is-invalid @endif">
