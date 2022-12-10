@@ -128,6 +128,9 @@
 													</div>
 												</div>
 												<div class="kt-widget__subhead">
+													@if($clientDetails->website)
+                                                    <a href="{{ $clientDetails->website }}"><i class="flaticon2-link"></i>{{$clientDetails->website}}</a>
+                                                    @endif
 													@if($clientDetails->email)
                                                     <a href="javascript:;"><i class="flaticon2-new-email"></i>{{$clientDetails->email}}</a>
                                                     @endif

@@ -203,7 +203,15 @@
                                             
                                          <!-- friendly url , status , sorting -->   
                                          <div class="form-group row">
-                                                
+
+											 <div class="col-lg-4">
+												 <label>Website</label>
+												 <input type="text" class="form-control @if($errors->has('website')) is-invalid @endif" name="website"
+														value="{{old('website',$editclients->website)}}" autocomplete="off" placeholder="website" />
+												 @if($errors->has('website'))
+													 <div class="invalid-feedback">{{ $errors->first('website') }}</div>
+												 @endif
+											 </div>
                                                 <div class="col-lg-6">
                                                 <label>{{__('adminMessage.image')}}</label>
                                                         <div class="custom-file @if($errors->has('image')) is-invalid @endif">

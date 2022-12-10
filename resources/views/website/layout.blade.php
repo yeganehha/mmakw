@@ -84,7 +84,13 @@
                     <div class="col-md-12">
                         <div id="logo-carousel" class="owl-carousel owl-theme">
                             @foreach($clients as $client)
-                                <img src="{{url('uploads/clients')}}/{{ $client->image }}" class="img-responsive p-3" alt="">
+                                @if ( $client->website )
+                                    <a href="{{ $client->website }}" rel="nofollow" target="_blank">
+                                @endif
+                                <img src="{{url('uploads/clients')}}/{{ $client->image }}" class="img-responsive p-3" alt="{{ $client->name }}">
+                                @if ( $client->website )
+                                    </a>
+                                @endif
                             @endforeach
                         </div>
                     </div>
