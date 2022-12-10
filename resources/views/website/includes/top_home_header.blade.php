@@ -100,7 +100,7 @@
 {{--                                    @endif--}}
 {{--                                @else--}}
 
-                                    @if(!empty($settingInfo->login_url))
+                                    @if($settingInfo->is_login)
                                         <li><a href="{{ $settingInfo->login_url }}">{{__('webMessage.login')}}</a></li>
                                     @endif
 

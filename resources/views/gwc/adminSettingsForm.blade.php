@@ -389,28 +389,40 @@
 										<!--begin::Form-->
 		
 											<div class="kt-portlet__body">
-                                            <div class="form-group">
-                                                <div class="input-group row">
-												 <label class="col-6">{{__('adminMessage.is_language_active')}}</label>
-													<div class="col-6">
-														<span class="kt-switch"><label>
-												<input value="1" {{!empty($settingDetails->is_lang)?'checked':''}} type="checkbox"  id="is_lang" name="is_lang"><span></span>
-															</label>
-														</span>
-													</div>
-                                                   </div>
-                                                </div>
-
-													<div class="form-group ">
-														<div class="input-group">
-															<div class="input-group-prepend"><span class="input-group-text">{{__('adminMessage.login_url')}}</span></div>
-															<input type="text" class="form-control @if($errors->has('login_url')) is-invalid @endif" name="login_url" value="@if($settingDetails->login_url){{$settingDetails->login_url}}@endif">
-															@if($errors->has('login_url'))
-																<div class="invalid-feedback">{{ $errors->first('login_url') }}</div>
-															@endif
+												<div class="form-group">
+													<div class="input-group row">
+													 <label class="col-6">{{__('adminMessage.is_language_active')}}</label>
+														<div class="col-6">
+															<span class="kt-switch">
+																<label>
+																	<input value="1" {{!empty($settingDetails->is_lang)?'checked':''}} type="checkbox"  id="is_lang" name="is_lang"><span></span>
+																</label>
+															</span>
 														</div>
-														{{__('adminMessage.emptydisable')}}
 													</div>
+												</div>
+												<div class="form-group">
+													<div class="input-group row">
+													 <label class="col-6">IS Login active</label>
+														<div class="col-6">
+															<span class="kt-switch">
+																<label>
+																	<input value="1" {{!empty($settingDetails->is_login)?'checked':''}} type="checkbox"  id="is_login" name="is_login"><span></span>
+																</label>
+															</span>
+														</div>
+													</div>
+												</div>
+
+												<div class="form-group ">
+													<div class="input-group">
+														<div class="input-group-prepend"><span class="input-group-text">{{__('adminMessage.login_url')}}</span></div>
+														<input type="text" class="form-control @if($errors->has('login_url')) is-invalid @endif" name="login_url" value="@if($settingDetails->login_url){{$settingDetails->login_url}}@endif">
+														@if($errors->has('login_url'))
+															<div class="invalid-feedback">{{ $errors->first('login_url') }}</div>
+														@endif
+													</div>
+												</div>
                                                 
                                                 <div class="form-group">
                                                 <div class="row">

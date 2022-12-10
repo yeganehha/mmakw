@@ -204,7 +204,8 @@ class AdminSettingsController extends Controller
 	    $setting->google_analytics = $request->input('google_analytics');
 		
 		$setting->is_lang=!empty($request->input('is_lang'))?$request->input('is_lang'):'0';
-		
+		$setting->is_login=!empty($request->input('is_login'))?$request->input('is_login'):'0';
+
 		$setting->case_updates_notification=$request->input('case_updates_notification');
 		
 		$setting->save();
