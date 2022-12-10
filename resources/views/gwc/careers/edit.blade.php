@@ -126,7 +126,7 @@
 													<div class="col-3">
 														<span class="kt-switch">
 															<label>
-																<input type="checkbox" {{ old('is_active', career->is_active) ? 'checked' : '' }} name="is_active"  id="is_active" value="1"/>
+																<input type="checkbox" {{ old('is_active', $career->is_active) ? 'checked' : '' }} name="is_active"  id="is_active" value="1"/>
 																<span></span>
 															</label>
 														</span>

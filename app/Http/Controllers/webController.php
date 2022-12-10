@@ -350,16 +350,18 @@ class webController extends Controller
 	  $servicesMenus     = Services::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
 	  $memberslists      = Memberships::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
       if(request()->filled('cat'))
-	    $careers         = Career::where("category_id", CareerCategory::whereSlug(request()->cat)->firstOrFail()->id)->latest()->with('category')->paginate($settingInfo->item_per_page_front);
+	    $careers         = Career::where("category_id", CareerCategory::whereSlug(request()->cat)->where('is_active' , 1)->firstOrFail()->id)->latest()->with('category')->paginate($settingInfo->item_per_page_front);
       else
-        $careers         = Career::latest()->with('category')->paginate($settingInfo->item_per_page_front);
+        $careers         = Career::latest()->where('is_active' , 1)->with('category')->paginate($settingInfo->item_per_page_front);
 
 	 return view('website.careers',compact('settingInfo','practiceareaMenus','servicesMenus','careers','memberslists'));
 	}
 
     public function career($slug){
         $settingInfo       = Settings::where("keyname","setting")->first();
-        $career            = Career::where('slug',$slug)->with('category')->first();
+        $career            = Career::where('slug',$slug)->where('is_active' , 1)->with('category')->first();
+        if ( $career == null)
+            abort(404);
         $practiceareaMenus = Practice::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
         $servicesMenus     = Services::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
         $memberslists      = Memberships::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
