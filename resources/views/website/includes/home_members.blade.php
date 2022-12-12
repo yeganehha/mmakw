@@ -9,14 +9,22 @@
             </div>
         </div>
 
-        <div class="row mt50">
-            @foreach($memberslists as $memberslist)
-                @if($memberslist->image)
-                    <div class="col-lg-4 mt-70 sm-mt0 px-md-1 mt-sm-none fadeInRight" data-wow-delay=".3s">
-                        <img class="mw-100" src="{{url('uploads/memberships/'.$memberslist->image)}}" alt="">
-                    </div>
-                @endif
-            @endforeach
+        <div class="row1 mt50">
+            <div id="members-carousel" class="owl-carousel owl-theme">
+                @foreach($memberslists as $memberslist)
+                    @if($memberslist->image)
+                        <div class="col-lg-41 mt-70 sm-mt0 px-md-1 mt-sm-none fadeInRight" data-wow-delay=".3s">
+                            @if($memberslist->website)
+                                <a href="{{ $memberslist->website }}" target="_blank" rel="nofollow">
+                            @endif
+                                    <img class="mw-100" src="{{url('uploads/memberships/'.$memberslist->image)}}" alt="" style="margin-top: 65px;">
+                            @if($memberslist->website)
+                                </a>
+                            @endif
+                        </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
     </div>
 </section>
