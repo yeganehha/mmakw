@@ -168,7 +168,7 @@
                                                 <div class="col-lg-6">
                                                 <label>{{__('adminMessage.email')}}</label>
                                                 <input type="text" class="form-control @if($errors->has('email')) is-invalid @endif" name="email"
-                                                               value="{{old('email')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_email')}}*" />
+                                                               value="{{old('email')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_email')}}" />
                                                                @if($errors->has('email'))
                                                                <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                                                                @endif
@@ -179,7 +179,7 @@
                                                 <div class="col-lg-4">
                                                 <label>{{__('adminMessage.mobile')}}-1</label>
                                                 <input type="text" class="form-control @if($errors->has('mobile1')) is-invalid @endif" name="mobile1"
-                                                               value="{{old('mobile1')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_mobile')}}*" />
+                                                               value="{{old('mobile1')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_mobile')}}" />
                                                                @if($errors->has('mobile1'))
                                                                <div class="invalid-feedback">{{ $errors->first('mobile1') }}</div>
                                                                @endif
@@ -238,7 +238,7 @@
                                                 <label>{{__('adminMessage.username')}}</label>
                                                 <input type="text" class="form-control @if($errors->has('username')) is-invalid @endif" name="username"
                                                                value="{{old('username')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_username')}}" />
-													<small> If you leave it blank, the email will be inserted automatically.</small>
+{{--													<small> If you leave it blank, the email will be inserted automatically.</small>--}}
 													@if($errors->has('username'))
 														<div class="invalid-feedback">{{ $errors->first('username') }}</div>
 													@endif
@@ -247,7 +247,7 @@
 												  <label>{{__('adminMessage.password')}}</label>
 												  <input type="password" class="form-control @if($errors->has('password')) is-invalid @endif" name="password"
 														 value="{{old('password')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_password')}}" />
-												  <small> If you leave it blank, the Mobile-1 will be inserted automatically.</small>
+												  <small> If you leave it blank, "123456789" set for password.</small>
                                                                @if($errors->has('password'))
                                                                <div class="invalid-feedback">{{ $errors->first('password') }}</div>
                                                                @endif

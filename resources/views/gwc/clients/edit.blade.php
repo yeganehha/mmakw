@@ -166,7 +166,7 @@
                                                 <div class="col-lg-6">
                                                 <label>{{__('adminMessage.email')}}</label>
                                                 <input type="text" class="form-control @if($errors->has('email')) is-invalid @endif" name="email"
-                                                               value="{{$editclients->email?$editclients->email:old('email')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_email')}}*" />
+                                                               value="{{$editclients->email?$editclients->email:old('email')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_email')}}" />
                                                                @if($errors->has('email'))
                                                                <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                                                                @endif
@@ -177,7 +177,7 @@
                                                 <div class="col-lg-4">
                                                 <label>{{__('adminMessage.mobile')}}-1</label>
                                                 <input type="text" class="form-control @if($errors->has('mobile1')) is-invalid @endif" name="mobile1"
-                                                               value="{{$editclients->mobile1?$editclients->mobile1:old('mobile1')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_mobile')}}*" />
+                                                               value="{{$editclients->mobile1?$editclients->mobile1:old('mobile1')}}" autocomplete="off" placeholder="{{__('adminMessage.enter_mobile')}}" />
                                                                @if($errors->has('mobile1'))
                                                                <div class="invalid-feedback">{{ $errors->first('mobile1') }}</div>
                                                                @endif
