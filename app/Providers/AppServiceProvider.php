@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
             // $clients = Clients::where("is_active","1")->whereNotNull('image')->where('image', '!=', '')->take(10)->get();
             // $footer_links = FooterLink::where("is_active","1")->orderBy('display_order', 'asc')->get();
             $view->with([
-                'clients' => Clients::where("is_active","1")->whereNotNull('image')->where('image', '!=', '')->take(10)->get(),
+                'clients' => Clients::where("is_active","1")->whereNotNull('image')->where('image', '!=', '')->get(),
                 'footer_links' => FooterLink::where("is_active","1")->orderBy('display_order', 'asc')->get()
             ]);
         });
