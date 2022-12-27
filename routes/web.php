@@ -30,6 +30,15 @@ Route::group(['middleware' => ['admin']], function() {
 	Route::get('/gwc/practice/pdf','AdminPracticeController@downloadPDF');
 	Route::resource('gwc/practice', 'AdminPracticeController');
 });
+//about us
+Route::group(['middleware' => ['admin']], function() {
+	Route::post('/gwc/About/{id}','AdminAboutUsController@update');
+	Route::get('/gwc/About/deletePracticeImage/{id}','AdminAboutUsController@deleteImage');
+	Route::get('/gwc/About/deletePracticebImage/{id}','AdminAboutUsController@deletebImage');
+	Route::get('/gwc/About/delete/{id}','AdminAboutUsController@destroy');
+	Route::get('/admin/About/ajax/{id}','AdminAboutUsController@updateStatusAjax');
+	Route::resource('gwc/About', 'AdminAboutUsController');
+});
 //services
 Route::group(['middleware' => ['admin']], function() {
 	Route::post('/gwc/services/{id}','AdminServicesController@update');
@@ -298,6 +307,7 @@ Route::group(['middleware' => ['admin']], function() {
 	Route::get('/mission','webController@mission');
 	Route::get('/vision','webController@vision');
 	Route::get('/practice/{slug}','webController@practicearea');
+	Route::get('/about-us/{slug}','webController@aboutus');
 	Route::get('/services/{slug}','webController@servicedetails');
 	Route::get('/members','webController@memberships');
 	Route::get('/news','webController@news');

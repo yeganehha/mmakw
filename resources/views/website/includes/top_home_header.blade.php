@@ -42,10 +42,17 @@
                             <ul id="mainmenu">
                                 <li ><a  href="{{url('/')}}">{{__('webMessage.home')}}</a></li>
                                 <li class="menu-item-has-children"><a href="{{url('/whoweare')}}">{{__('webMessage.whoweare')}}</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{url('/mission')}}">{{__('webMessage.mission')}}</a></li>
-                                        <li><a href="{{url('/vision')}}">{{__('webMessage.vision')}}</a></li>
-                                        <li><a href="{{url('/team')}}">{{__('webMessage.team')}}</a></li>
+{{--                                    <ul class="sub-menu">--}}
+{{--                                        <li><a href="{{url('/mission')}}">{{__('webMessage.mission')}}</a></li>--}}
+{{--                                        <li><a href="{{url('/vision')}}">{{__('webMessage.vision')}}</a></li>--}}
+{{--                                        <li><a href="{{url('/team')}}">{{__('webMessage.team')}}</a></li>--}}
+{{--                                    </ul>--}}
+                                    <ul class="sub-menu" style="max-width:290px;">
+                                        @foreach($aboutusMenus as $aboutusMenu)
+                                            <li><a href="{{url('/about-us/'.$aboutusMenu->slug)}}" class="w-100">
+                                                    @if(app()->getLocale()=='en') {{$aboutusMenu->menu_name_en}} @else {{$aboutusMenu->menu_name_ar}} @endif
+                                                </a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
 

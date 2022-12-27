@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\About;
 use App\Attribute;
 use App\Box;
 use App\Career;
@@ -228,6 +229,22 @@ class webController extends Controller
         $memberslists      = Memberships::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
 
         return view('website.practicearea',compact('settingInfo','practicedetails','practiceareaMenus','servicesMenus','memberslists'));
+    }
+
+    //get news details
+    public function aboutus($slug){
+        //get setting details
+        $settingInfo       = Settings::where("keyname","setting")->first();
+        //news details
+        $aboutusDetails   = About::where('slug',$slug)->first();
+        //get practice area
+        $practiceareaMenus = Practice::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
+        //get services
+        $servicesMenus     = Services::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
+        //get members
+        $memberslists      = Memberships::where("is_active","1")->orderBy('display_order', $settingInfo->default_sort)->get();
+
+        return view('website.aboutus',compact('settingInfo','aboutusDetails','practiceareaMenus','servicesMenus','memberslists'));
     }
     //get service details
     public function servicedetails($slug){
